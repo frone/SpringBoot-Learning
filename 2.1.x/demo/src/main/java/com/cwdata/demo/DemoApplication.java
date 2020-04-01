@@ -1,13 +1,14 @@
-package com.didispace.chapter11;
+package com.cwdata.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.cwdata.web.HelloController;
 
 @SpringBootApplication
-public class Chapter11Application {
+public class DemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Chapter11Application.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 
 }
