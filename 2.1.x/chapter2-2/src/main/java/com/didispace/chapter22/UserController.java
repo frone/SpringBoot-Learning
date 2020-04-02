@@ -5,14 +5,21 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.*;
 
+/**
+ * @author Brown
+ * 通过这里配置使下面的映射都在/users下
+ */
 @Api(tags = "用户管理")
 @RestController
-@RequestMapping(value = "/users")     // 通过这里配置使下面的映射都在/users下
+@RequestMapping(value = "/users")
 public class UserController {
 
-    // 创建线程安全的Map，模拟users信息的存储
+    /**
+     * 创建线程安全的Map，模拟users信息的存储
+     */
     static Map<Long, User> users = Collections.synchronizedMap(new HashMap<>());
 
     @GetMapping("/")
@@ -24,7 +31,7 @@ public class UserController {
 
     @PostMapping("/")
     @ApiOperation(value = "创建用户", notes = "根据User对象创建用户")
-    public String postUser(@RequestBody User user) {
+    public String postUser(@Valid @RequestBody User user) {
         users.put(user.getId(), user);
         return "success";
     }
