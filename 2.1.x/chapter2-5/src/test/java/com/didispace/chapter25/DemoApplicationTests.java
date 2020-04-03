@@ -39,8 +39,9 @@ public class DemoApplicationTests {
 
         URL remoteSwaggerFile = new URL("http://localhost:8080/v2/api-docs");
         Path outputDirectory = Paths.get("src/docs/markdown/generated");
+        Path outputFileAll = Paths.get("src/docs/markdown/generated/all");
 
-        //    输出Ascii格式
+        //    输出 MARKDOWN 格式
         Swagger2MarkupConfig config = new Swagger2MarkupConfigBuilder()
                 .withMarkupLanguage(MarkupLanguage.MARKDOWN)
                 .build();
@@ -48,7 +49,8 @@ public class DemoApplicationTests {
         Swagger2MarkupConverter.from(remoteSwaggerFile)
                 .withConfig(config)
                 .build()
-                .toFolder(outputDirectory);
+//                .toFolder(outputDirectory)
+                .toFile(outputFileAll);
     }
 
     @Test

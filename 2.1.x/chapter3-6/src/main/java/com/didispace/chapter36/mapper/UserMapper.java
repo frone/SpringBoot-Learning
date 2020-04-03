@@ -2,6 +2,7 @@ package com.didispace.chapter36.mapper;
 
 import com.didispace.chapter36.entity.User;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * Created by 程序猿DD/翟永超 on 2020/2/28.

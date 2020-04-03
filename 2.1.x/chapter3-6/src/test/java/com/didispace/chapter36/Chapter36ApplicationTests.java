@@ -3,6 +3,7 @@ package com.didispace.chapter36;
 import com.didispace.chapter36.entity.User;
 import com.didispace.chapter36.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,9 +23,10 @@ public class Chapter36ApplicationTests {
     private UserMapper userMapper;
 
     @Test
-    @Rollback
+    @Transactional
     public void test() throws Exception {
-        userMapper.insert("AAA", 20);
+        val ret = userMapper.insert("AAA", 20);
+//        System.out.println(ret);
         User u = userMapper.findByName("AAA");
         Assert.assertEquals(20, u.getAge().intValue());
     }

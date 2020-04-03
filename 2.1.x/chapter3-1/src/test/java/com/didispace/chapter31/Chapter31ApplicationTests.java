@@ -40,7 +40,7 @@ public class Chapter31ApplicationTests {
         // 插入5个用户
         userSerivce.create("Tom", 10);
         userSerivce.create("Mike", 11);
-        userSerivce.create("Didispace", 30);
+        userSerivce.create("Didispace", 30,true);
         userSerivce.create("Oscar", 21);
         userSerivce.create("Linda", 17);
 

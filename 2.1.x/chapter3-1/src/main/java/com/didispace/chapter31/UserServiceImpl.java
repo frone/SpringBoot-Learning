@@ -20,12 +20,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int create(String name, Integer age) {
-        return jdbcTemplate.update("insert into USER(NAME, AGE) values(?, ?)", name, age);
+        return jdbcTemplate.update("insert into user(NAME, AGE) values(?, ?)", name, age);
+    }
+
+    @Override
+    public int create(String name, Integer age, Boolean deleted) {
+        return jdbcTemplate.update("insert into user(NAME, AGE, is_deleted) values(?, ?,?)", name, age, deleted);
     }
 
     @Override
     public List<User> getByName(String name) {
-        List<User> users = jdbcTemplate.query("select NAME, AGE from USER where NAME = ?", (resultSet, i) -> {
+        List<User> users = jdbcTemplate.query("select NAME, AGE from user where NAME = ?", (resultSet, i) -> {
             User user = new User();
             user.setName(resultSet.getString("NAME"));
             user.setAge(resultSet.getInt("AGE"));
@@ -36,17 +41,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int deleteByName(String name) {
-        return jdbcTemplate.update("delete from USER where NAME = ?", name);
+        return jdbcTemplate.update("delete from user where NAME = ?", name);
     }
 
     @Override
     public int getAllUsers() {
-        return jdbcTemplate.queryForObject("select count(1) from USER", Integer.class);
+        return jdbcTemplate.queryForObject("select count(1) from user", Integer.class);
     }
 
     @Override
     public int deleteAllUsers() {
-        return jdbcTemplate.update("delete from USER");
+        return jdbcTemplate.update("delete from user");
     }
 
 }

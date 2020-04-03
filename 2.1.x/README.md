@@ -14,6 +14,7 @@
 - [Spring Boot 2.x基础教程：快速入门](http://blog.didispace.com/spring-boot-learning-21-1-1/)
 - [Spring Boot 2.x基础教程：工程结构推荐](http://blog.didispace.com/spring-boot-learning-21-1-2/)
 - [Spring Boot 2.x基础教程：配置文件详解](http://blog.didispace.com/spring-boot-learning-21-1-3/)
+- [Java开发神器Lombok的使用与原理](http://blog.didispace.com/java-lombok-how-to-use/)
 
 ### Web开发
 

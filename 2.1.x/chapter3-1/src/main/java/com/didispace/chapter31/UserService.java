@@ -13,6 +13,15 @@ public interface UserService {
     int create(String name, Integer age);
 
     /**
+     * 新增一个用户
+     * @param name
+     * @param age
+     * @param deleted
+     * @return
+     */
+    int create(String name, Integer age,Boolean deleted);
+
+    /**
      * 根据name查询用户
      *
      * @param name
